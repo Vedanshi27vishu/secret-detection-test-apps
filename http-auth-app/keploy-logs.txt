@@ -1,0 +1,50 @@
+🐰 Keploy: 2026-04-09T18:07:43.729000085+05:30 	[34mINFO[0m	Re-executing with sudo for elevated privileges as Linux Docker/cloud replay path needs root-level eBPF privileges.
+🐰 Keploy: 2026-04-09T12:42:04.292810285Z 	[34mINFO[0m	detected that Keploy is running in a docker container
+🐰 Keploy: 2026-04-09T12:42:04.293014175Z 	[33mWARN[0m	buildDelay is set to 30, incase your docker container takes more time to build use --buildDelay to set custom delay
+🐰 Keploy: 2026-04-09T12:42:04.293033565Z 	[34mINFO[0m	Example usage: keploy record -c "docker-compose up --build" --buildDelay 35
+🐰 Keploy: 2026-04-09T12:42:04.293063685Z 	[33mWARN[0m	AppName in config (http-auth-app) does not match current directory name (files)
+🐰 Keploy: 2026-04-09T12:42:04.293846172Z 	[31mERROR[0m	Failed to relax host perf_event_paranoid. Tracepoints may fail.	{"error": "exec: \"sysctl\": executable file not found in $PATH"}
+🐰 Keploy: 2026-04-09T12:42:04.293958502Z 	[31mERROR[0m	failed setting up the environment	{"error": "exec: \"sysctl\": executable file not found in $PATH"}
+🐰 Keploy: 2026-04-09T12:42:04.294078052Z 	[34mINFO[0m	stopping Keploy	{"reason": "failed setting up the environment"}
+🐰 Keploy: 2026-04-09T12:42:04.294168161Z 	[34mINFO[0m	Stopping Keploy recording...
+🐰 Keploy: 2026-04-09T12:42:04.29464842Z 	[31mERROR[0m	failed to record	{"error": "failed setting up the environment"}
+🐰 Keploy: 2026-04-09T12:43:01.520787724Z 	[34mINFO[0m	detected that Keploy is running in a docker container
+🐰 Keploy: 2026-04-09T12:43:01.520910944Z 	[33mWARN[0m	buildDelay is set to 30, incase your docker container takes more time to build use --buildDelay to set custom delay
+🐰 Keploy: 2026-04-09T12:43:01.520921264Z 	[34mINFO[0m	Example usage: keploy record -c "docker-compose up --build" --buildDelay 35
+🐰 Keploy: 2026-04-09T12:43:01.520944603Z 	[33mWARN[0m	AppName in config (http-auth-app) does not match current directory name (files)
+🐰 Keploy: 2026-04-09T12:43:01.525904717Z 	[34mINFO[0m	Running application using a temporary Keploy-generated Docker Compose file (will be cleaned up automatically)	{"cmd": "docker compose -f ./docker-compose-tmp.yaml up --abort-on-container-exit --exit-code-from http-auth-app", "composePath": "docker-compose-tmp.yaml"}
+🐰 Keploy: 2026-04-09T12:43:01.525927397Z 	[34mINFO[0m	Waiting for keploy-agent to be ready for docker compose...	{"Agent-uri": "http://localhost:38355/agent"}
+🐰 Keploy: 2026-04-09T12:43:01.526252866Z 	[34mINFO[0m	Starting Application :	{"executing_cmd": "/usr/bin/sh -c docker compose -f ./docker-compose-tmp.yaml up --abort-on-container-exit --exit-code-from http-auth-app"}
+🐰 Keploy: 2026-04-09T12:43:44.141989877Z 	[34mINFO[0m	Stopping Keploy recording...
+🐰 Keploy: 2026-04-09T12:43:44.148898016Z 	[33mWARN[0m	timeout waiting for the container to stop	{"containerID": "http-auth-app"}
+🐰 Keploy: 2026-04-09T12:45:00.684660768Z 	[34mINFO[0m	detected that Keploy is running in a docker container
+🐰 Keploy: 2026-04-09T12:45:00.684759988Z 	[33mWARN[0m	buildDelay is set to 30, incase your docker container takes more time to build use --buildDelay to set custom delay
+🐰 Keploy: 2026-04-09T12:45:00.684768198Z 	[34mINFO[0m	Example usage: keploy record -c "docker-compose up --build" --buildDelay 35
+🐰 Keploy: 2026-04-09T12:45:00.684779378Z 	[33mWARN[0m	AppName in config (http-auth-app) does not match current directory name (files)
+🐰 Keploy: 2026-04-09T12:45:00.689774764Z 	[34mINFO[0m	Running application using a temporary Keploy-generated Docker Compose file (will be cleaned up automatically)	{"cmd": "docker compose -f ./docker-compose-tmp.yaml up --abort-on-container-exit --exit-code-from http-auth-app", "composePath": "docker-compose-tmp.yaml"}
+🐰 Keploy: 2026-04-09T12:45:00.689808143Z 	[34mINFO[0m	Waiting for keploy-agent to be ready for docker compose...	{"Agent-uri": "http://localhost:40541/agent"}
+🐰 Keploy: 2026-04-09T12:45:00.689927553Z 	[34mINFO[0m	Starting Application :	{"executing_cmd": "/usr/bin/sh -c docker compose -f ./docker-compose-tmp.yaml up --abort-on-container-exit --exit-code-from http-auth-app"}
+🐰 Keploy: 2026-04-09T12:47:00.690353769Z 	[31mERROR[0m	failed stopping keploy	{"error": "cannot stop keploy without a reason"}
+🐰 Keploy: 2026-04-09T12:47:00.690513489Z 	[31mERROR[0m	failed to stop recording	{"error": "cannot stop keploy without a reason"}
+🐰 Keploy: 2026-04-09T12:47:00.69052589Z 	[34mINFO[0m	Stopping Keploy recording...
+🐰 Keploy: 2026-04-09T12:47:31.693294319Z 	[33mWARN[0m	timeout waiting for the container to stop	{"containerID": "http-auth-app"}
+🐰 Keploy: 2026-04-09T12:47:31.999871723Z 	[31mERROR[0m	failed to record	{"error": "keploy-agent did not become ready in time"}
+🐰 Keploy: 2026-04-09T12:50:34.871099605Z 	[34mINFO[0m	detected that Keploy is running in a docker container
+🐰 Keploy: 2026-04-09T12:50:34.871611214Z 	[33mWARN[0m	buildDelay is set to 30, incase your docker container takes more time to build use --buildDelay to set custom delay
+🐰 Keploy: 2026-04-09T12:50:34.871635145Z 	[34mINFO[0m	Example usage: keploy record -c "docker-compose up --build" --buildDelay 35
+🐰 Keploy: 2026-04-09T12:50:34.871656494Z 	[33mWARN[0m	AppName in config (http-auth-app) does not match current directory name (files)
+🐰 Keploy: 2026-04-09T12:50:34.876701043Z 	[34mINFO[0m	Running application using a temporary Keploy-generated Docker Compose file (will be cleaned up automatically)	{"cmd": "docker compose -f ./docker-compose-tmp.yaml up --abort-on-container-exit --exit-code-from http-auth-app", "composePath": "docker-compose-tmp.yaml"}
+🐰 Keploy: 2026-04-09T12:50:34.876734942Z 	[34mINFO[0m	Waiting for keploy-agent to be ready for docker compose...	{"Agent-uri": "http://localhost:35171/agent"}
+🐰 Keploy: 2026-04-09T12:50:34.876957012Z 	[34mINFO[0m	Starting Application :	{"executing_cmd": "/usr/bin/sh -c docker compose -f ./docker-compose-tmp.yaml up --abort-on-container-exit --exit-code-from http-auth-app"}
+🐰 Keploy: 2026-04-09T12:50:35.882415515Z 	[34mINFO[0m	Keploy agent is ready to record test cases and mocks.
+🐰 Keploy: 2026-04-09T12:50:35.882514094Z 	[34mINFO[0m	Setting a timer of 1m30s for recording
+🐰 Keploy: 2026-04-09T12:51:15.899328341Z 	[34mINFO[0m	🟠 Keploy has captured test cases for the user's application.	{"path": "/files/keploy/test-set-0/tests", "testcase name": "test-1"}
+🐰 Keploy: 2026-04-09T12:51:16.001591003Z 	[34mINFO[0m	🟠 Keploy has captured test cases for the user's application.	{"path": "/files/keploy/test-set-0/tests", "testcase name": "test-2"}
+🐰 Keploy: 2026-04-09T12:51:32.878662582Z 	[34mINFO[0m	🟠 Keploy has captured test cases for the user's application.	{"path": "/files/keploy/test-set-0/tests", "testcase name": "test-3"}
+🐰 Keploy: 2026-04-09T12:51:32.894446147Z 	[34mINFO[0m	🟠 Keploy has captured test cases for the user's application.	{"path": "/files/keploy/test-set-0/tests", "testcase name": "test-4"}
+🐰 Keploy: 2026-04-09T12:51:37.90441204Z 	[34mINFO[0m	🟠 Keploy has captured test cases for the user's application.	{"path": "/files/keploy/test-set-0/tests", "testcase name": "test-5"}
+🐰 Keploy: 2026-04-09T12:51:38.111955318Z 	[34mINFO[0m	🟠 Keploy has captured test cases for the user's application.	{"path": "/files/keploy/test-set-0/tests", "testcase name": "test-6"}
+🐰 Keploy: 2026-04-09T12:52:05.882777838Z 	[33mWARN[0m	Time up! Stopping keploy
+🐰 Keploy: 2026-04-09T12:52:05.882899195Z 	[34mINFO[0m	stopping Keploy	{"reason": "Time up! Stopping keploy"}
+🐰 Keploy: 2026-04-09T12:52:05.882936016Z 	[34mINFO[0m	Stopping Keploy recording...
+🐰 Keploy: 2026-04-09T12:52:08.230930421Z 	[34mINFO[0m	Cleaning up running operations...

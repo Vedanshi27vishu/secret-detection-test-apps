@@ -1,0 +1,76 @@
+version: "3.9"
+services:
+    http-auth-app:
+        image: http-auth-app-http-auth-app:latest
+        container_name: http-auth-app
+        environment:
+            - API_KEY=sk-live-aBcDeFgHiJkLmNoPqRsTuVwXyZ1234567890abcd
+            - JWT_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+            - CLIENT_SECRET=cs_prod_XyZ9876aBcDeFgHiJkLmNoPqRsTuV54321
+            - NODE_EXTRA_CA_CERTS=/tmp/keploy-tls/ca.crt
+            - REQUESTS_CA_BUNDLE=/tmp/keploy-tls/ca.crt
+            - SSL_CERT_FILE=/tmp/keploy-tls/ca.crt
+            - CARGO_HTTP_CAINFO=/tmp/keploy-tls/ca.crt
+            - JAVA_TOOL_OPTIONS=-Djavax.net.ssl.trustStore=/tmp/keploy-tls/truststore.jks -Djavax.net.ssl.trustStorePassword=changeit
+        restart: unless-stopped
+        depends_on:
+            keploy-agent:
+                condition: service_healthy
+        volumes:
+            - keploy-tls-certs:/tmp/keploy-tls:ro
+        pid: service:keploy-agent
+        network_mode: service:keploy-agent
+    keploy-agent:
+        image: ghcr.io/keploy/keploy:v3.3.68
+        container_name: keploy-v3-1344
+        # Capabilities required by keploy-agent for eBPF interception.
+        # Review and allow only what your security policy permits.
+        cap_add:
+            - BPF
+            - PERFMON
+            - NET_ADMIN # required for network traffic capture (scoped to container's own namespace)
+            - SYS_RESOURCE
+            - SYS_PTRACE
+            - SYS_NICE
+        environment:
+            - BINARY_TO_DOCKER=true
+            - CERT_EXPORT_PATH=/tmp/keploy-tls
+        ports:
+            - "35171:35171"
+            - "16789:16789"
+            - "8080:8080"
+        networks:
+            default:
+                aliases:
+                    - http-auth-app
+        volumes:
+            - /sys/fs/cgroup:/sys/fs/cgroup
+            - /sys/kernel/debug:/sys/kernel/debug
+            - /sys/fs/bpf:/sys/fs/bpf
+            - keploy-tls-certs:/tmp/keploy-tls
+        command:
+            - --port
+            - "35171"
+            - --proxy-port
+            - "16789"
+            - --dns-port
+            - "26789"
+            - --client-pid
+            - "239010"
+            - --mode
+            - record
+            - --is-docker
+            - --config-path
+            - /files
+            - --build-delay
+            - "30"
+        healthcheck:
+            test:
+                - CMD-SHELL
+                - cat /tmp/agent.ready
+            interval: 5s
+            timeout: 5s
+            retries: 60
+            start_period: 10s
+volumes:
+    keploy-tls-certs: {}
