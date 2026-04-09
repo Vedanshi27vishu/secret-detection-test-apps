@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  mongo-app:
+    build: .
+    ports:
+      - "8083:8083"
+    environment:
+      # SECRET: MongoDB credentials in environment variables — detection target
+      - MONGO_USER=mongouser
+      - MONGO_PASSWORD=Mongo$ecret99!
+      - MONGO_HOST=localhost
+      - MONGO_PORT=27017
+      - MONGO_DB=appdb
+      # SECRET: full connection string also set as env var — detection target
+      - MONGO_URI=mongodb://mongouser:Mongo$ecret99!@localhost:27017/appdb
+      # SECRET: API key in compose env — detection target
+      - INTERNAL_API_KEY=api_key_3c2b1a0f9e8d7c6b5a4f3e2d1c0b9a8f
