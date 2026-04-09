@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  postgres-app:
+    build: .
+    ports:
+      - "8081:8081"
+    environment:
+      # SECRET: DB credentials in environment variables — detection target
+      - DB_USER=admin
+      - DB_PASSWORD=SuperSecret123!
+      - DB_HOST=localhost
+      - DB_PORT=5432
+      - DB_NAME=userdb
+      # SECRET: full connection string also set as env var — detection target
+      - DATABASE_URL=postgres://admin:SuperSecret123!@localhost:5432/userdb?sslmode=disable
+      # SECRET: API key in compose env — detection target
+      - INTERNAL_API_KEY=api_key_9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c
