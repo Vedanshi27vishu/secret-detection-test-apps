@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  mysql-app:
+    build: .
+    ports:
+      - "8082:8082"
+    environment:
+      # SECRET: DB credentials in environment variables — detection target
+      - DB_USER=mysql_admin
+      - DB_PASSWORD=MySQLSecret@2024!
+      - DB_HOST=localhost
+      - DB_PORT=3306
+      - DB_NAME=appdb
+      # SECRET: full MySQL DSN also set as env var — detection target
+      - DATABASE_URL=mysql_admin:MySQLSecret@2024!@tcp(localhost:3306)/appdb
+      # SECRET: API key in compose env — detection target
+      - INTERNAL_API_KEY=api_key_3c2b1a0f9e8d7c6b5a4f3e2d1c0b9a8f
