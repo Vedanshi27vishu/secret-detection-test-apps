@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  http-auth-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: http-auth-app
+    ports:
+      - "8080:8080"
+    environment:
+      - API_KEY=sk-live-aBcDeFgHiJkLmNoPqRsTuVwXyZ1234567890abcd
+      - JWT_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+      - CLIENT_SECRET=cs_prod_XyZ9876aBcDeFgHiJkLmNoPqRsTuV54321
+    restart: unless-stopped
