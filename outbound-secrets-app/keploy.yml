@@ -1,0 +1,11 @@
+version: api.keploy.io/v1beta1
+kind: Config
+spec:
+  app:
+    name: outbound-secrets-app
+    port: 8080
+    cmd: docker run --rm --name outbound-secrets-app -p 8080:8080 outbound-secrets-app:latest
+    containerName: outbound-secrets-app
+  keploy:
+    testsPath: ./keploy
+    mocksPath: ./keploy
